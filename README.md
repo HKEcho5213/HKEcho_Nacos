@@ -12,7 +12,7 @@
 设置Referer:https://www.google.com/
 ```
 
-工具文件夹中HKEcho_Nacos.exe，nacosleak.exe均已通过upx压缩加壳减小体积。担心后门可自行编译或前往原项目地址下载。
+工具文件夹中HKEcho_Nacos.exe，nacosleak.exe均已通过upx压缩加壳减小体积。担心后门可自行编译或前往原项目地址下载后替换。
 
 ## 原理
 
