@@ -69,7 +69,7 @@ optional arguments:
 python HKEcho_Nacos.py -u http://192.2xx.2xx.1x:8848
 ```
 
-![image-20231114180219893](D:\Desktop\IDEA\Projects\python\HKEcho_Nacos\images\image-20231114180219893.png)
+![image-20231114180219893](.\images\image-20231114180219893.png)
 
 **2、批量目标检测**：
 
@@ -79,7 +79,7 @@ python HKEcho_Nacos.py -u http://192.2xx.2xx.1x:8848
 python HKEcho_Nacos.py -f target.txt
 ```
 
-![image-20231114191212752](D:\Desktop\IDEA\Projects\python\HKEcho_Nacos\images\image-20231114191212752.png)
+![image-20231114191212752](.\images\image-20231114191212752.png)
 
 **3、特殊场景下使用**
 
@@ -87,17 +87,17 @@ python HKEcho_Nacos.py -f target.txt
 
 上传python打包的HKEcho_Nacos.exe到C2上使用，注意，单纯上传HKEcho_Nacos.exe运行，会对内网目标nacos添加一个账号，不会对目标进行配置文件导出和检测Nacos_Jraft_Hessian反序列化漏洞。若想导出配置文件，可单独上传nacosleak.exe进行读取。
 
-![image-20231115095419466](D:\Desktop\IDEA\Projects\python\HKEcho_Nacos\images\image-20231115095419466.png)
+![image-20231115095419466](.\images\image-20231115095419466.png)
 
-![image-20231115095310757](D:\Desktop\IDEA\Projects\python\HKEcho_Nacos\images\image-20231115095310757.png)
+![image-20231115095310757](.\images\image-20231115095310757.png)
 
 或者如下图直接将HKEcho_Nacos.exe与nacosleak.exe通过C2上传到目标服务器上同一目录下，直接执行HKEcho_Nacos.exe会自动调用nacosleak.exe
 
-![image-20231115095608455](D:\Desktop\IDEA\Projects\python\HKEcho_Nacos\images\image-20231115095608455.png)
+![image-20231115095608455](.\images\image-20231115095608455.png)
 
 同理，若想检测检测Nacos_Jraft_Hessian反序列化漏洞，同理可以将NacosRce压缩后上传到目标服务器上同一目录下，不过不建议这样，NacosRce太大了。
 
-![image-20231115100233567](D:\Desktop\IDEA\Projects\python\HKEcho_Nacos\images\image-20231115100233567.png)
+![image-20231115100233567](.\images\image-20231115100233567.png)
 
 ## Nacos后利用
 
@@ -105,7 +105,7 @@ python HKEcho_Nacos.py -f target.txt
 
 上述利用完成后，会在/results/ip_port/public目录下生成目标站点的配置文件，a1phaboy师傅特别将ak/sk,password关键字提取了出来：
 
-![image-20231114183758207](D:\Desktop\IDEA\Projects\python\HKEcho_Nacos\images\image-20231114183758207.png)
+![image-20231114183758207](.\images\image-20231114183758207.png)
 
 我们可以在内网可以通过该密码本快速爆破，比如利用fscan等工具
 
@@ -147,15 +147,15 @@ fscan.exe -h 192.168.1.1/24 -o 192.168.1.txt -pwda 收集到的新密码 -usera 
 
 MakeToken
 
-![250575224-7819b38c-e558-49b0-bce7-dd6d9b5a185b](D:\Desktop\IDEA\Projects\python\HKEcho_Nacos\images\250575224-7819b38c-e558-49b0-bce7-dd6d9b5a185b.png)
+![250575224-7819b38c-e558-49b0-bce7-dd6d9b5a185b](.\images\250575224-7819b38c-e558-49b0-bce7-dd6d9b5a185b.png)
 
 将生成后的token 保存进浏览器cookie 格式 token:{xxx}
 
-![250532141-60089b8d-fa3d-4584-bc16-90dc5423d486](D:\Desktop\IDEA\Projects\python\HKEcho_Nacos\images\250532141-60089b8d-fa3d-4584-bc16-90dc5423d486.png)
+![250532141-60089b8d-fa3d-4584-bc16-90dc5423d486](.\images\250532141-60089b8d-fa3d-4584-bc16-90dc5423d486.png)
 
 **Adduser**
 
-![250532121-2a110b94-4ff7-4c09-a456-6d090f10ac3f](D:\Desktop\IDEA\Projects\python\HKEcho_Nacos\images\250532121-2a110b94-4ff7-4c09-a456-6d090f10ac3f.png)
+![250532121-2a110b94-4ff7-4c09-a456-6d090f10ac3f](.\images\250532121-2a110b94-4ff7-4c09-a456-6d090f10ac3f.png)
 
 添加一个账号后，用nacosleak单独把配置文件读取下来。
 
@@ -168,9 +168,9 @@ nacosleak.exe -t http://192.2xx.2xx.21:8848 -u audit2 -p Password123!
 在github下载有漏洞的版本
 https://github.com/alibaba/nacos/releases
 
-![image-20231115102526342](D:\Desktop\IDEA\Projects\python\HKEcho_Nacos\images\image-20231115102526342.png)
+![image-20231115102526342](.\images\image-20231115102526342.png)
 
-![image-20231115102620390](D:\Desktop\IDEA\Projects\python\HKEcho_Nacos\images\image-20231115102620390.png)
+![image-20231115102620390](.\images\image-20231115102620390.png)
 
 ## 参考链接
 
